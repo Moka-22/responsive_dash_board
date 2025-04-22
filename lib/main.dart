@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:responsiveapp/features/presentation/dashboard/views/dash_board_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ResponsiveDashBoard());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ResponsiveDashBoard extends StatelessWidget {
+  const ResponsiveDashBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      home: DashBoardView(),
     );
   }
 }
