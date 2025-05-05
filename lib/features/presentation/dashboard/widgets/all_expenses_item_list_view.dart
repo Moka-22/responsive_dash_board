@@ -36,39 +36,42 @@ class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children:
-          items.asMap().entries.map((e) {
-            int index = e.key;
-            var item = e.value;
-            if (index == 1) {
-              return Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    updateIndex(index);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: AllExpensesItem(
-                      allExpensesItemModel: item,
-                      isSelected: selectedIndex == index,
-                    ),
-                  ),
-                ),
-              );
-            } else {
-              return Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    updateIndex(index);
-                  },
-                  child: AllExpensesItem(
-                    allExpensesItemModel: item,
-                    isSelected: selectedIndex == index,
-                  ),
-                ),
-              );
-            }
-          }).toList(),
+      spacing: 8,
+      children: [
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(0);
+            },
+            child: AllExpensesItem(
+              allExpensesItemModel: items[0],
+              isSelected: selectedIndex == 0,
+            ),
+          ),
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(1);
+            },
+            child: AllExpensesItem(
+              allExpensesItemModel: items[1],
+              isSelected: selectedIndex == 1,
+            ),
+          ),
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(2);
+            },
+            child: AllExpensesItem(
+              allExpensesItemModel: items[2],
+              isSelected: selectedIndex == 2,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
